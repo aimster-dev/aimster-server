@@ -1,6 +1,6 @@
 package com.aimster.aimsterserver.controllers;
 
-import com.aimster.aimsterserver.dao.Example;
+import com.aimster.aimsterserver.models.Example;
 import com.aimster.aimsterserver.services.ExampleService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
