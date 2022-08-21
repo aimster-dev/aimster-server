@@ -1,1 +1,1 @@
-java -jar target/aimster-server-1.0.0.war --spring.profiles.active=dev
+java -jar target/aimster-server-0.0.1.war --spring.profiles.active=dev
