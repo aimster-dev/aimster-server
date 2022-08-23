@@ -19,7 +19,6 @@ public class ExampleValidator {
     }
 
     public void isInputValid(String request) {
-
         /* Validate HTTP request body ... etc */
         /* Throw custom error if fail */
 

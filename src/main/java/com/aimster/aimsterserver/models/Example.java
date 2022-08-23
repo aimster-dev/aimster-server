@@ -1,4 +1,4 @@
-package com.aimster.aimsterserver.dao;
+package com.aimster.aimsterserver.models;
 
 public class Example {
 

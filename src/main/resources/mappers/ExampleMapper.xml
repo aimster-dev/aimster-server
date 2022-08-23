@@ -11,12 +11,11 @@
     </resultMap>
 
     <!-- Query definitions -->
-
     <select id="getExampleById" resultMap="ExampleMap">
         SELECT id,text FROM example WHERE id=#{id}
     </select>
 
     <insert id="insertExample" parameterType="String" useGeneratedKeys="true" keyProperty="id">
-        insert into example(text) values(#{text})
+        insert into example(text) values (#{text})
     </insert>
 </mapper>
