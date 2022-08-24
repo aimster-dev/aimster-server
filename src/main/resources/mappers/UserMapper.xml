@@ -19,4 +19,12 @@
     <select id="getUserById" resultMap="UserMap">
         SELECT id,username,password_hash,email,experience,confirmation_code,confirmation_date FROM user WHERE id=#{id}
     </select>
+
+    <!-- Last three properties populate request's id field as the auto generated ID from mySQL -->
+    <insert id="insertUser" parameterType="com.aimster.aimsterserver.objects.requests.CreateUserRequest" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into user
+            (username, password_hash, email, confirmation_code, confirmation_date)
+        values
+            (#{request.username}, #{request.password}, #{request.email}, #{request.confirmationCode}, #{request.confirmationDate})
+    </insert>
 </mapper>

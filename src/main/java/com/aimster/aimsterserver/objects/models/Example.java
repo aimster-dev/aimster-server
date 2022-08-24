@@ -1,4 +1,4 @@
-package com.aimster.aimsterserver.models;
+package com.aimster.aimsterserver.objects.models;
 
 public class Example {
 

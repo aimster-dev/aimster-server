@@ -1,8 +1,8 @@
-package com.aimster.aimsterserver.models;
+package com.aimster.aimsterserver.objects.requests;
 
 import java.sql.Timestamp;
 
-public class User {
+public class CreateUserRequest {
 
     private Long id;
 
@@ -12,36 +12,26 @@ public class User {
 
     private String email;
 
-    private Long experience;
-
     private String confirmationCode;
 
-    private Timestamp confirmationDate;
+    private String confirmationDate;
 
-        public User(Long id, String username, String password, String email, Long experience, String confirmationCode, Timestamp confirmationDate) {
-        this.id = id;
+    public CreateUserRequest(String username, String password, String email, String confirmationCode, String confirmationDate) {
         this.username = username;
         this.password = password;
         this.email = email;
-        this.experience = experience;
         this.confirmationCode = confirmationCode;
         this.confirmationDate = confirmationDate;
     }
 
-    public Timestamp getConfirmationDate() {
+    public CreateUserRequest() {}
+
+    public String getConfirmationDate() {
         return confirmationDate;
     }
 
-    public void setConfirmationDate(Timestamp confirmationDate) {
+    public void setConfirmationDate(String confirmationDate) {
         this.confirmationDate = confirmationDate;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getUsername() {
@@ -68,19 +58,19 @@ public class User {
         this.email = email;
     }
 
-    public Long getExperience() {
-        return experience;
-    }
-
-    public void setExperience(Long experience) {
-        this.experience = experience;
-    }
-
     public String getConfirmationCode() {
         return confirmationCode;
     }
 
     public void setConfirmationCode(String confirmationCode) {
         this.confirmationCode = confirmationCode;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
