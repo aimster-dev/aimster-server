@@ -2,6 +2,7 @@ package com.aimster.aimsterserver.controllers;
 
 import com.aimster.aimsterserver.objects.models.User;
 import com.aimster.aimsterserver.objects.requests.CreateUserRequest;
+import com.aimster.aimsterserver.objects.requests.UpdateUserRequest;
 import com.aimster.aimsterserver.services.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -46,6 +47,16 @@ public class UserController {
     @ResponseBody
     public void deleteUserById(HttpServletRequest httpRequest, @PathVariable Long id) {
         userService.deleteUserById(id);
+    }
+
+    @RequestMapping(
+            consumes = {MediaType.APPLICATION_JSON_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE},
+            method = RequestMethod.PUT
+    )
+    @ResponseBody
+    public void updateUser(HttpServletRequest httpRequest, @RequestBody UpdateUserRequest request) {
+        userService.updateUser(request);
     }
 
 

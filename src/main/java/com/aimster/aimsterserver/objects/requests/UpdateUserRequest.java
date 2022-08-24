@@ -1,6 +1,6 @@
 package com.aimster.aimsterserver.objects.requests;
 
-public class CreateUserRequest {
+public class UpdateUserRequest {
 
     private Long id;
 
@@ -14,15 +14,18 @@ public class CreateUserRequest {
 
     private String confirmationDate;
 
-    public CreateUserRequest(String username, String password, String email, String confirmationCode, String confirmationDate) {
+    private Long experience;
+
+    public UpdateUserRequest(String username, String password, String email, String confirmationCode, String confirmationDate, Long experience) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.confirmationCode = confirmationCode;
         this.confirmationDate = confirmationDate;
+        this.experience = experience;
     }
 
-    public CreateUserRequest() {}
+    public UpdateUserRequest() {}
 
     public String getConfirmationDate() {
         return confirmationDate;
@@ -70,5 +73,13 @@ public class CreateUserRequest {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getExperience() {
+        return experience;
+    }
+
+    public void setExperience(Long experience) {
+        this.experience = experience;
     }
 }

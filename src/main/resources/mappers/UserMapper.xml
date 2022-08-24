@@ -32,4 +32,25 @@
         DELETE FROM user WHERE
             id = #{id}
     </delete>
+
+    <update id="updateUser">
+        UPDATE user SET
+            <if test = "request.username != null">
+                username = #{request.username},
+            </if>
+            <if test = "request.password != null">
+                password_hash = #{request.password},
+            </if>
+            <if test = "request.email != null">
+                email = #{request.email},
+            </if>
+            <if test = "request.confirmationCode != null">
+                confirmation_code = #{request.confirmationCode},
+            </if>
+            <if test = "request.confirmationDate != null">
+                confirmation_date = #{request.confirmationDate},
+            </if>
+            updated_at = CURRENT_TIMESTAMP()
+        WHERE id = #{request.id}
+    </update>
 </mapper>

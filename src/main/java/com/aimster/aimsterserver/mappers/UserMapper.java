@@ -2,10 +2,9 @@ package com.aimster.aimsterserver.mappers;
 
 import com.aimster.aimsterserver.objects.models.User;
 import com.aimster.aimsterserver.objects.requests.CreateUserRequest;
+import com.aimster.aimsterserver.objects.requests.UpdateUserRequest;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-
-import java.sql.Timestamp;
 
 @Mapper
 public interface UserMapper {
@@ -14,4 +13,6 @@ public interface UserMapper {
     void insertUser(@Param("request") CreateUserRequest request);
 
     void deleteUserById(@Param("id") Long id);
+
+    void updateUser(@Param("request") UpdateUserRequest request);
 }
