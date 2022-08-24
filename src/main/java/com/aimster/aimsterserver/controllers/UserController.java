@@ -38,5 +38,15 @@ public class UserController {
         return userService.insertUser(request);
     }
 
+    @RequestMapping(
+            produces = {MediaType.APPLICATION_JSON_VALUE},
+            method = RequestMethod.DELETE,
+            path = "/{id}"
+    )
+    @ResponseBody
+    public void deleteUserById(HttpServletRequest httpRequest, @PathVariable Long id) {
+        userService.deleteUserById(id);
+    }
+
 
 }

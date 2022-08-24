@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 public interface UserMapper {
     User getUserById(@Param("id") Long id);
 
-    Long insertUser(
-            @Param("request") CreateUserRequest request
-    );
+    void insertUser(@Param("request") CreateUserRequest request);
+
+    void deleteUserById(@Param("id") Long id);
 }

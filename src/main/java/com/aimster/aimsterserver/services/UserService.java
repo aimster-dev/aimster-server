@@ -24,4 +24,10 @@ public class UserService {
         return request.getId();
     }
 
+    @Transactional
+    public void deleteUserById(Long id) {
+        userMapper.deleteUserById(id);
+    }
+
+
 }
