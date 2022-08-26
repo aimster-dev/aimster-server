@@ -4,6 +4,7 @@ import com.aimster.aimsterserver.objects.models.User;
 import com.aimster.aimsterserver.mappers.UserMapper;
 import com.aimster.aimsterserver.objects.requests.CreateUserRequest;
 import com.aimster.aimsterserver.objects.requests.UpdateUserRequest;
+import com.aimster.aimsterserver.objects.responses.UserProfileResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +16,7 @@ public class UserService {
     private UserMapper userMapper;
 
     @Transactional
-    public User getUserById(Long id) {
+    public UserProfileResponse getUserById(Long id) {
         return userMapper.getUserById(id);
     }
 

@@ -3,6 +3,7 @@ package com.aimster.aimsterserver.controllers;
 import com.aimster.aimsterserver.objects.models.User;
 import com.aimster.aimsterserver.objects.requests.CreateUserRequest;
 import com.aimster.aimsterserver.objects.requests.UpdateUserRequest;
+import com.aimster.aimsterserver.objects.responses.UserProfileResponse;
 import com.aimster.aimsterserver.services.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -25,7 +26,7 @@ public class UserController {
             path = "/{id}"
     )
     @ResponseBody
-    public User getUserById(HttpServletRequest httpRequest, @PathVariable Long id) {
+    public UserProfileResponse getUserById(HttpServletRequest httpRequest, @PathVariable Long id) {
         return userService.getUserById(id);
     }
 

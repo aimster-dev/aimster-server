@@ -1,0 +1,19 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.aimster.aimsterserver.mappers.UserFriendRequestMapper">
+
+    <resultMap id="UserProfileResponseMap" type="UserProfileResponse">
+        <id column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="experience" property="experience" />
+    </resultMap>
+
+    <select id="getUsersPendingFriendRequests" resultMap="UserProfileResponseMap">
+        SELECT user.id,user.username,user.experience FROM user_friend_request
+        INNER JOIN user on user.id = user_friend_request.fk_source_id
+        WHERE user_friend_request.fk_target_id = #{id}
+    </select>
+
+</mapper>

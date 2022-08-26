@@ -18,7 +18,7 @@ public class User {
 
     private Timestamp confirmationDate;
 
-        public User(Long id, String username, String password, String email, Long experience, String confirmationCode, Timestamp confirmationDate) {
+    public User(Long id, String username, String password, String email, Long experience, String confirmationCode, Timestamp confirmationDate) {
         this.id = id;
         this.username = username;
         this.password = password;

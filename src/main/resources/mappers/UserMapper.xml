@@ -15,9 +15,15 @@
         <result column="confirmation_date" property="confirmationDate" />
     </resultMap>
 
+    <resultMap id="UserProfileResponseMap" type="UserProfileResponse">
+        <id column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="experience" property="experience" />
+    </resultMap>
+
     <!-- Query definitions -->
-    <select id="getUserById" resultMap="UserMap">
-        SELECT id,username,password_hash,email,experience,confirmation_code,confirmation_date FROM user WHERE id=#{id}
+    <select id="getUserById" resultMap="UserProfileResponseMap">
+        SELECT id,username,experience FROM user WHERE id=#{id}
     </select>
 
     <!-- Last three properties populate request's id field as the auto generated ID from mySQL -->
