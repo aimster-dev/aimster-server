@@ -4,16 +4,22 @@
 
 <mapper namespace="com.aimster.aimsterserver.mappers.UserFriendRequestMapper">
 
-    <resultMap id="UserProfileResponseMap" type="UserProfileResponse">
+    <resultMap id="UserProfileResponseMap" type="UserFriendRequestResponse">
         <id column="id" property="id" />
-        <result column="username" property="username" />
-        <result column="experience" property="experience" />
+        <result column="requesterId" property="requesterId" />
+        <result column="username" property="requesterUsername" />
+        <result column="experience" property="requesterExperience" />
     </resultMap>
 
-    <select id="getUsersPendingFriendRequests" resultMap="UserProfileResponseMap">
-        SELECT user.id,user.username,user.experience FROM user_friend_request
+    <select id="getUserPendingFriendRequests" resultMap="UserProfileResponseMap">
+        SELECT user_friend_request.id,user.id as requesterId,user.username,user.experience FROM user_friend_request
         INNER JOIN user on user.id = user_friend_request.fk_source_id
         WHERE user_friend_request.fk_target_id = #{id}
     </select>
+
+    <delete id="deleteUserPendingFriendRequestById">
+        DELETE FROM user_friend_request WHERE
+        id = #{id}
+    </delete>
 
 </mapper>
