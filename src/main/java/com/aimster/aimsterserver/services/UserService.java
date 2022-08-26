@@ -28,6 +28,9 @@ public class UserService {
 
     @Transactional
     public void deleteUserById(Long id) {
+
+        // TODO delete occurances of ID wherever it exists as a foreign key
+
         userMapper.deleteUserById(id);
     }
 

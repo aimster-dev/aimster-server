@@ -1,6 +1,8 @@
 package com.aimster.aimsterserver.controllers;
 
 import com.aimster.aimsterserver.objects.models.User;
+import com.aimster.aimsterserver.objects.requests.CreateUserFriendRequestRequest;
+import com.aimster.aimsterserver.objects.requests.CreateUserRequest;
 import com.aimster.aimsterserver.objects.responses.UserFriendRequestResponse;
 import com.aimster.aimsterserver.objects.responses.UserProfileResponse;
 import com.aimster.aimsterserver.services.UserFriendRequestService;
@@ -36,6 +38,16 @@ public class UserFriendRequestController {
     @ResponseBody
     public void deleteUserPendingFriendRequestById(HttpServletRequest httpRequest, @PathVariable Long id) {
         userFriendRequestService.deleteUserPendingFriendRequestById(id);
+    }
+
+    @RequestMapping(
+            consumes = {MediaType.APPLICATION_JSON_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE},
+            method = RequestMethod.POST
+    )
+    @ResponseBody
+    public Long insertUserFriendRequest(HttpServletRequest httpRequest, @RequestBody CreateUserFriendRequestRequest request) {
+        return userFriendRequestService.insertUserFriendRequest(request);
     }
 
 

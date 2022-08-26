@@ -22,4 +22,11 @@
         id = #{id}
     </delete>
 
+    <insert id="insertUserFriendRequest" parameterType="com.aimster.aimsterserver.objects.requests.CreateUserFriendRequestRequest" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO user_friend_request
+            (fk_source_id, fk_target_id)
+        VALUES
+            (#{request.sourceId}, #{request.targetId})
+    </insert>
+
 </mapper>

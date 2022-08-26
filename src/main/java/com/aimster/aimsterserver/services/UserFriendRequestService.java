@@ -1,6 +1,7 @@
 package com.aimster.aimsterserver.services;
 
 import com.aimster.aimsterserver.mappers.UserFriendRequestMapper;
+import com.aimster.aimsterserver.objects.requests.CreateUserFriendRequestRequest;
 import com.aimster.aimsterserver.objects.responses.UserFriendRequestResponse;
 import com.aimster.aimsterserver.objects.responses.UserProfileResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,11 @@ public class UserFriendRequestService {
     @Transactional
     public void deleteUserPendingFriendRequestById(Long id) {
         userFriendRequestMapper.deleteUserPendingFriendRequestById(id);
+    }
+
+    @Transactional
+    public Long insertUserFriendRequest(CreateUserFriendRequestRequest request) {
+        userFriendRequestMapper.insertUserFriendRequest(request);
+        return request.getId();
     }
 }
